@@ -10,6 +10,7 @@ Available transports:
 
 * TCP
 * UDP
+* HTTP
 
 All default transport implementations use a queue to send messages in a
 background thread to avoid blocking the calling thread until a message has
