@@ -16,6 +16,7 @@
 
 package org.graylog2.gelfclient;
 
+import org.graylog2.gelfclient.transport.GelfHttpTransport;
 import org.graylog2.gelfclient.transport.GelfTcpTransport;
 import org.graylog2.gelfclient.transport.GelfTransport;
 import org.graylog2.gelfclient.transport.GelfUdpTransport;
@@ -36,6 +37,13 @@ public class GelfTransportsTest {
         final GelfTransport transport = GelfTransports.create(GelfTransports.TCP, new GelfConfiguration());
 
         assertEquals(GelfTcpTransport.class, transport.getClass());
+    }
+
+    @Test
+    public void testCreateHttp() throws Exception {
+        final GelfTransport transport = GelfTransports.create(GelfTransports.HTTP, new GelfConfiguration());
+
+        assertEquals(GelfHttpTransport.class, transport.getClass());
     }
 
     @Test
